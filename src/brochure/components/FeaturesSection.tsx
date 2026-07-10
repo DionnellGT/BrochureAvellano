@@ -1,5 +1,5 @@
 import { Headset, PiggyBank, TrendingUp, Wallet, type LucideIcon } from "lucide-react";
-import type { FeatureCard } from "@/brochure/data/data";
+import type { FeatureCard } from "@/brochure/data/features";
 
 interface FeaturesSectionProps {
   eyebrow: string;
@@ -22,10 +22,10 @@ export function FeaturesSection({ eyebrow, title, cards }: FeaturesSectionProps)
   return (
     <section id="caracteristicas" className="py-20">
       <div className="text-center mb-12">
-        <div className="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-2">
+        <div className="text-[#79542e] font-bold text-xs uppercase tracking-[0.2em] mb-2">
           {eyebrow}
         </div>
-        <h2 className="font-heading text-[32px] leading-10 font-semibold tracking-tight text-primary">
+        <h2 className="font-heading text-[32px] leading-10 font-semibold tracking-tight text-[#79542e]">
           {title}
         </h2>
         <div className="w-24 h-1 bg-clay-accent mx-auto mt-4" />

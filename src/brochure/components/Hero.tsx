@@ -1,11 +1,14 @@
 import { ArrowDown, Download } from "lucide-react";
-import type { HeroContent } from "@/brochure/data/data";
+import type { HeroContent } from "@/brochure/data/hero";
+import { useLocation } from "react-router";
 
 interface HeroProps {
   hero: HeroContent;
 }
 
 export function Hero({ hero }: HeroProps) {
+  const location = useLocation()
+
   return (
     <header className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -33,17 +36,28 @@ export function Hero({ hero }: HeroProps) {
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href={hero.primaryCta.href}
-            className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:bg-moss-container transition-all transform hover:-translate-y-1 flex items-center gap-2"
+            className="bg-[#79542e] text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:bg-[#A67C52] transition-all transform hover:-translate-y-1 flex items-center gap-2"
           >
             {hero.primaryCta.label} <ArrowDown className="size-5" />
           </a>
-          <a
-            href={hero.secondaryCta.href}
-            download={hero.secondaryCta.fileName}
-            className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold text-lg border border-white/30 hover:bg-white/20 transition-all flex items-center gap-2"
-          >
-            {hero.secondaryCta.label} <Download className="size-5" />
-          </a>
+          {location.pathname.includes("vendedores") ? (
+            <a
+              href="/listado-el-avellano-Julio-Post-Venta-vendedor.pdf"
+              download="listado-el-avellano-Julio-Post-Venta-vendedor.pdf"
+              className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold text-lg border border-white/30 hover:bg-white/20 transition-all flex items-center gap-2"
+            >
+              {hero.secondaryCta.label} <Download className="size-5" />
+            </a>
+          ) :
+            <a
+              href="/listado-el-avellano-Julio-Ventas-cliente.pdf"
+              download="listado-el-avellano-Julio-Ventas-cliente.pdf"
+              className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold text-lg border border-white/30 hover:bg-white/20 transition-all flex items-center gap-2"
+            >
+              {hero.secondaryCta.label} <Download className="size-5" />
+            </a>
+          }
+          
         </div>
       </div>
     </header>

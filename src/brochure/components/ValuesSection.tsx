@@ -1,5 +1,5 @@
 import { Leaf, MapPin, ShieldCheck, type LucideIcon } from "lucide-react";
-import type { ValueItem } from "@/brochure/data/data";
+import type { ValueItem } from "@/brochure/data/values";
 
 interface ValuesSectionProps {
   values: ValueItem[];
@@ -24,9 +24,9 @@ export function ValuesSection({ values }: ValuesSectionProps) {
               <div
                 className={`w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 hover:rotate-0 transition-transform ${ROTATIONS[index % ROTATIONS.length]}`}
               >
-                <Icon className="size-9 text-primary" />
+                <Icon className="size-9 text-[#79542e]" />
               </div>
-              <h3 className="font-heading text-2xl leading-8 font-semibold text-primary mb-3">
+              <h3 className="font-heading text-2xl leading-8 font-semibold text-[#79542e] mb-3">
                 {value.title}
               </h3>
               <p className="text-muted-foreground max-w-xs">{value.description}</p>

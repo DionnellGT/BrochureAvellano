@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import type { GalleryImage } from "@/brochure/data/data";
+import type { GalleryImage } from "@/brochure/data/gallery";
 
 interface GallerySectionProps {
   title: string;
@@ -19,14 +19,11 @@ export function GallerySection({ title, subtitle, ctaLabel, images }: GallerySec
     <section className="py-20">
       <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
         <div>
-          <h2 className="font-heading text-[32px] leading-10 font-semibold tracking-tight text-primary mb-2">
+          <h2 className="font-heading text-[32px] leading-10 font-semibold tracking-tight text-[#79542e] mb-2">
             {title}
           </h2>
           <p className="text-secondary font-medium">{subtitle}</p>
         </div>
-        <button className="text-primary font-bold flex items-center gap-2 hover:opacity-70 group">
-          {ctaLabel} <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-        </button>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[250px]">

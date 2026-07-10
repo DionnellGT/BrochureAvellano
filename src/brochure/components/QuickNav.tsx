@@ -1,5 +1,5 @@
 import { Map } from "lucide-react";
-import type { QuickNavLink } from "@/brochure/data/data";
+import type { QuickNavLink } from "@/brochure/data/quickNavLinks";
 
 interface QuickNavProps {
   links: QuickNavLink[];
@@ -23,8 +23,8 @@ export function QuickNav({ links }: QuickNavProps) {
               href={link.href}
               className={`px-4 py-2 rounded-full font-bold transition-all border text-sm max-sm:text-[12px] ${
                 link.highlighted
-                  ? "bg-primary/5 hover:bg-primary/10 text-primary border-primary/20"
-                  : "bg-muted hover:bg-surface-container-high text-muted-foreground border-mist-border"
+                  ? "bg-primary/5 hover:bg-primary/10 text-[#79542e] border-[#A67C52]/20"
+                  : "bg-muted hover:bg-surface-container-high text-muted-foreground border-[#A67C52]"
               }`}
             >
               {link.label}

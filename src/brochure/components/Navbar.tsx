@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
-import type { NavLink } from "@/brochure/data/data";
+import type { NavLink } from "@/brochure/data/navbar";
 
 interface NavbarProps {
   logoUrl: string;
@@ -42,15 +42,15 @@ export function Navbar({ logoUrl, links }: NavbarProps) {
           </a>
         ))}
         <a
-          href="https://www.rematedeterrenos.cl/#proyectos"
+          href="https://www.elavellano.cl/#proyectos"
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full px-6 py-2.5 h-auto font-semibold text-muted-foreground hover:text-primary shadow-sm bg-on-primary-container hover:bg-moss-container active:scale-95"
+          className="rounded-full px-6 py-2.5 h-auto font-semibold text-muted-foreground text-white hover:text-gray shadow-sm bg-[#A67C52] hover:bg-[#79542e] active:scale-95"
         >
           Ver Catálogo
         </a>
       </div>
-
+ 
       <button className="md:hidden text-primary p-2" aria-label="Abrir menú">
         <Menu className="size-7" />
       </button>

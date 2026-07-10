@@ -1,8 +1,8 @@
 import { Mail, Phone, Share2, ExternalLink, type LucideIcon } from "lucide-react";
-import type { BrochureData } from "@/brochure/data/data";
+import type { FooterData } from "@/brochure/data/footer";
 
 interface FooterProps {
-  footer: BrochureData["footer"];
+  footer: FooterData;
 }
 
 const SOCIAL_ICONS: Record<"share" | "mail" | "phone", LucideIcon> = {
@@ -41,14 +41,14 @@ export function Footer({ footer }: FooterProps) {
             })}
           </div>
           <div className="mt-8">
-            <p className="text-xs font-bold text-accent uppercase tracking-[0.2em] mb-4">
+            <p className="text-xs font-bold text-[#A67C52] uppercase tracking-[0.2em] mb-4">
               {footer.corporateSite.label}
             </p>
             <a
               href={footer.corporateSite.url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-moss-container transition-all shadow-lg group"
+              className="inline-flex items-center gap-3 bg-[#79542e] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#A67C52] transition-all shadow-lg group"
             >
               Visitar {footer.corporateSite.url.replace("https://", "")}
               <ExternalLink className="size-4 group-hover:translate-x-1 transition-transform" />
@@ -57,7 +57,7 @@ export function Footer({ footer }: FooterProps) {
         </div>
 
         <div className="grid grid-cols-2 gap-x-12 gap-y-6">
-          <h4 className="col-span-2 font-bold text-accent uppercase tracking-[0.2em] text-sm">
+          <h4 className="col-span-2 font-bold text-[#A67C52] uppercase tracking-[0.2em] text-sm">
             Nuestros Proyectos
           </h4>
           {footer.projectsLinks.map((link) => (
@@ -72,7 +72,7 @@ export function Footer({ footer }: FooterProps) {
         </div>
 
         <div className="flex flex-col gap-6">
-          <h4 className="font-bold text-accent uppercase tracking-[0.2em] text-sm">
+          <h4 className="font-bold text-[#A67C52] uppercase tracking-[0.2em] text-sm">
             Información
           </h4>
           {footer.infoLinks.map((link) => (
