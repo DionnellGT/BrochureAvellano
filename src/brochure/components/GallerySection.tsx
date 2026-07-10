@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import type { GalleryImage } from "@/brochure/data/gallery";
 
 interface GallerySectionProps {
@@ -14,7 +13,7 @@ const SIZE_CLASSES: Record<GalleryImage["size"], string> = {
   wide: "col-span-2",
 };
 
-export function GallerySection({ title, subtitle, ctaLabel, images }: GallerySectionProps) {
+export function GallerySection({ title, subtitle, images }: GallerySectionProps) {
   return (
     <section className="py-20">
       <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
