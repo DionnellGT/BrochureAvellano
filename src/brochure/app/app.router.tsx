@@ -2,6 +2,8 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router"
 import { BrochureLayout } from "../layout/BrochureLayout"
 import { ListaCliente } from "../pages/ListaCliente"
 import { ListaVendedores } from "../pages/ListaVendedores"
+import { AdminLayout } from "../admin/layout/AdminLayout"
+import { DashboardPage } from "../admin/pages/DashboardPage"
 
 
 const appRouter = createBrowserRouter([
@@ -20,6 +22,21 @@ const appRouter = createBrowserRouter([
             }
         ]
     },
+
+    //Admin Routes
+    {
+        path: '/admin',
+        element: 
+                    <AdminLayout/>,
+        children: [
+            {
+                index: true,
+                element: <DashboardPage/>
+            },
+            
+        ]
+    },
+
 
     {
         path: '*',
