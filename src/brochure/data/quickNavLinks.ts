@@ -1,3 +1,7 @@
+// Los valores de esta lista ahora se arman dinámicamente en BrochureLayout
+// a partir de las listas de precios reales (ver useProjectsByMarcaAndTipo),
+// según la marca y el tipo (cliente/postventa) de la página actual. Este
+// archivo solo deja el tipo, reutilizado por QuickNav.
 
 export interface QuickNavLink {
   id: string;
@@ -5,12 +9,3 @@ export interface QuickNavLink {
   href: string;
   highlighted?: boolean;
 }
-
-
-export const quickNavLinks: QuickNavLink[] = [
-    { id: "quemchi-aucar", label: "Quemchi Aucar", href: "#quemchi-aucar", highlighted: true },
-    { id: "paraiso-belben", label: "Paraiso Belben", href: "#paraiso-belben" },
-    { id: "choroihue", label: "Choroihue", href: "#choroihue" },
-    { id: "fundo-bellavista", label: "Fundo Bellavista", href: "#fundo-bellavista" },
-    { id: "hacienda-rio-frio", label: "Hacienda Rio Frio", href: "#hacienda-rio-frio" },
-  ]
