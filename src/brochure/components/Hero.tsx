@@ -1,13 +1,23 @@
 import { ArrowDown, Download } from "lucide-react";
-import type { HeroContent } from "@/brochure/data/hero";
 import { useLocation } from "react-router";
+import type { HeroContent } from "@/brochure/data/hero";
+import { Marca, TipoLista } from "@/api/pricesList.types";
+import { getAssetUrl } from "@/api/axiosInstance";
+import { useBrochureInfo } from "@/hook/useBrochure";
 
 interface HeroProps {
   hero: HeroContent;
 }
 
 export function Hero({ hero }: HeroProps) {
-  const location = useLocation()
+  const location = useLocation();
+  const tipo = location.pathname.includes("vendedores") ? TipoLista.POSTVENTA : TipoLista.CLIENTE;
+
+  // Mismo PDF que se sube desde el admin (UploadBrochureDialog) para
+  // El Avellano + este tipo de página. Si todavía no se subió ninguno,
+  // el botón "Descargar Brochure" simplemente no se muestra.
+  const { data: brochure } = useBrochureInfo(Marca.ELAVELLANO, tipo);
+  const brochureUrl = brochure?.exists && brochure.url ? getAssetUrl(brochure.url) : undefined;
 
   return (
     <header className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -40,24 +50,18 @@ export function Hero({ hero }: HeroProps) {
           >
             {hero.primaryCta.label} <ArrowDown className="size-5" />
           </a>
-          {location.pathname.includes("vendedores") ? (
+
+          {brochureUrl && (
             <a
-              href="/listado-el-avellano-Julio-Post-Venta-vendedor.pdf"
-              download="listado-el-avellano-Julio-Post-Venta-vendedor.pdf"
+              href={brochureUrl}
+              download
+              target="_blank"
+              rel="noreferrer"
               className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold text-lg border border-white/30 hover:bg-white/20 transition-all flex items-center gap-2"
             >
               {hero.secondaryCta.label} <Download className="size-5" />
             </a>
-          ) :
-            <a
-              href="/listado-el-avellano-Julio-Ventas-cliente.pdf"
-              download="listado-el-avellano-Julio-Ventas-cliente.pdf"
-              className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold text-lg border border-white/30 hover:bg-white/20 transition-all flex items-center gap-2"
-            >
-              {hero.secondaryCta.label} <Download className="size-5" />
-            </a>
-          }
-          
+          )}
         </div>
       </div>
     </header>

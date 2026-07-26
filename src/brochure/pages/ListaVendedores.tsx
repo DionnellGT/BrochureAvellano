@@ -1,28 +1,38 @@
 import { ProjectsSection } from "../components/ProjectsSection"
-import { useBrochureData } from "../hook/useBrochureData";
-
+import { useProjectsByMarcaAndTipo } from "../hook/useProjectsByMarcaAndTipo";
+import { Marca, TipoLista } from "@/api/pricesList.types";
 
 export const ListaVendedores = () => {
+  const { projects, isLoading, isError } = useProjectsByMarcaAndTipo(
+    Marca.ELAVELLANO,
+    TipoLista.POSTVENTA,
+  );
 
-  const { data, isLoading, isError } = useBrochureData();
-  
-    if (isLoading) {
-      return (
-        <div className="min-h-screen flex items-center justify-center bg-background text-muted-foreground">
-          Cargando brochure...
-        </div>
-      );
-    }
-  
-    if (isError || !data) {
-      return (
-        <div className="min-h-screen flex items-center justify-center bg-background text-destructive">
-          No fue posible cargar la información del brochure.
-        </div>
-      );
-    }
-  
+  if (isLoading) {
+    return (
+      <div className="min-h-[50vh] flex items-center justify-center text-muted-foreground">
+        Cargando listas de precios...
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="min-h-[50vh] flex items-center justify-center text-destructive text-center px-6">
+        No fue posible cargar la información. Intenta nuevamente más tarde.
+      </div>
+    );
+  }
+
+  if (!projects || projects.length === 0) {
+    return (
+      <div className="min-h-[50vh] flex items-center justify-center text-muted-foreground text-center px-6">
+        Aún no hay listas de precios postventa publicadas.
+      </div>
+    );
+  }
+
   return (
-    <ProjectsSection projects={data.projects} />
+    <ProjectsSection projects={projects} />
   )
 }
