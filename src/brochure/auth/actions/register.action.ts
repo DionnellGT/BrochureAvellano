@@ -1,5 +1,5 @@
-import { testShopApi } from "@/api/testShopApi"
-import type { AuthResponse } from "../interfaces/auth.response"
+import { apiClient } from "@/api"
+import type { AuthResponse } from "../interface/auth.response"
 
 
 export const registerAction = async(
@@ -9,7 +9,7 @@ export const registerAction = async(
 ): Promise<AuthResponse> => {
 
     try {
-        const {data} = await testShopApi.post<AuthResponse>('/auth/register',{
+        const {data} = await apiClient.post<AuthResponse>('/auth/register',{
             fullName,
             email,
             password,

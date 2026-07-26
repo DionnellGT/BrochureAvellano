@@ -1,8 +1,8 @@
-import type { User } from '@/interface/user.interface'
 import { create } from 'zustand'
-import { loginAction } from '../action/login.action'
-import { checkAuthAction } from '../action/check-auth.action'
-import { registerAction } from '../action/register.action'
+import { loginAction } from '../actions/login.action';
+import { registerAction } from '../actions/register.action';
+import { checkAuthAction } from '../actions/check-auth.action';
+import type { User } from '../interface/auth.response';
 
 
 type AuthStatus = 'authenticated' | 'not-authenticated' | 'checking'

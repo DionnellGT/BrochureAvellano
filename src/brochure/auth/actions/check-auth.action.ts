@@ -1,5 +1,5 @@
-import { testShopApi } from "@/api/testShopApi"
-import type { AuthResponse } from "../interfaces/auth.response"
+import { apiClient } from "@/api"
+import type { AuthResponse } from "../interface/auth.response"
 
 
 export const checkAuthAction = async() => {
@@ -8,7 +8,7 @@ export const checkAuthAction = async() => {
     if(!token) throw new Error('No token found')
 
     try {
-        const { data } = await testShopApi.get<AuthResponse>('/auth/check-status')
+        const { data } = await apiClient.get<AuthResponse>('/auth/check-status')
 
         localStorage.setItem('token', data.token)
 

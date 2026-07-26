@@ -1,5 +1,5 @@
-import { testShopApi } from "@/api/testShopApi"
-import type { AuthResponse } from "../interfaces/auth.response"
+import { apiClient } from "@/api"
+import type { AuthResponse } from "../interface/auth.response"
 
 
 export const loginAction = async(
@@ -8,7 +8,7 @@ export const loginAction = async(
 ): Promise<AuthResponse> => {
 
     try {
-        const {data} = await testShopApi.post<AuthResponse>('/auth/login',{
+        const {data} = await apiClient.post<AuthResponse>('/auth/login',{
             email,
             password
         })
