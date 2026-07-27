@@ -18,7 +18,7 @@ export const BrochureLayout = () => {
     const quickNavLinks: QuickNavLink[] = (projects ?? []).map((project, index) => ({
         id: project.id,
         label: project.nombre,
-        href: `#${project.id}`,
+        href: `#${project.nombre}`,
         highlighted: index === 0,
     }));
 
