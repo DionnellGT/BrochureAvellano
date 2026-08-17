@@ -35,7 +35,7 @@ export const BrochureLayout = () => {
                   title={featuresSection.title}
                   cards={featuresSection.cards}
                 />
-                <ValuesSection values={values} />
+                {/*<ValuesSection values={values} />*/}
                 <GallerySection
                   title={gallerySection.title}
                   subtitle={gallerySection.subtitle}
