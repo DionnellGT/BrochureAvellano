@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router"
-import { hero, navLinks, featuresSection, gallerySection, footer, values } from "../data"
-import { FeaturesSection, GallerySection, ValuesSection, Hero, Navbar, Footer, QuickNav } from "../components";
+import { hero, navLinks, featuresSection, gallerySection, footer } from "../data"
+import { FeaturesSection, GallerySection, Hero, Navbar, Footer, QuickNav } from "../components";
 import { useProjectsByMarcaAndTipo } from "../hook/useProjectsByMarcaAndTipo";
 import { Marca, TipoLista } from "@/api/pricesList.types";
 import type { QuickNavLink } from "../data/quickNavLinks";
