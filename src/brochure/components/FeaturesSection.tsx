@@ -31,7 +31,7 @@ export function FeaturesSection({ eyebrow, title, cards }: FeaturesSectionProps)
         <div className="w-24 h-1 bg-clay-accent mx-auto mt-4" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6 h-auto md:h-[300px]">
         {large && <LargeCard card={large} />}
         {medium && <MediumCard card={medium} />}
         {smalls.map((card) => (
@@ -79,7 +79,7 @@ function MediumCard({ card }: { card: FeatureCard }) {
 function SmallCard({ card }: { card: FeatureCard }) {
   const Icon = ICONS[card.icon];
   return (
-    <div className="bg-white border border-mist-border p-8 rounded-2xl hover:-translate-y-1 transition-all flex flex-col items-center text-center shadow-md">
+    <div className="bg-white border border-mist-border p-8 rounded-2xl hover:-translate-y-1 transition-all flex flex-col items-center text-center shadow-md max-w-[285px] min-h-[250px]">
       <Icon className="size-10 text-primary mb-4" />
       <h4 className="font-bold text-primary mb-2">{card.title}</h4>
       <p className="text-muted-foreground">{card.description}</p>
