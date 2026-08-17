@@ -56,21 +56,6 @@ export function Footer({ footer }: FooterProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-x-12 gap-y-6">
-          <h4 className="col-span-2 font-bold text-[#A67C52] uppercase tracking-[0.2em] text-sm">
-            Nuestros Proyectos
-          </h4>
-          {footer.projectsLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-white/60 hover:text-white transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-
         <div className="flex flex-col gap-6">
           <h4 className="font-bold text-[#A67C52] uppercase tracking-[0.2em] text-sm">
             Información

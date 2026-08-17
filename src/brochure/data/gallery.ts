@@ -14,7 +14,7 @@ export interface GallerySection {
   };
 
 export const gallerySection: GallerySection = {
-    title: "Inspiración Chiloé",
+    title: "Inspiración en la Región de Los Lagos",
     subtitle: "Explore la magia y el misticismo de nuestro entorno austral",
     ctaLabel: "Ver Galería Completa",
     images: [
