@@ -24,22 +24,6 @@ export function Footer({ footer }: FooterProps) {
           <p className="text-white/70 text-lg leading-7 mb-8 italic font-light">
             {footer.quote}
           </p>
-          <div className="flex gap-6 mb-8">
-            {footer.socials.map((social, index) => {
-              const Icon = SOCIAL_ICONS[social.icon];
-              return (
-                <a
-                  key={index}
-                  href={social.href}
-                  target={social.target}
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-clay-accent hover:border-clay-accent transition-all duration-300"
-                >
-                  <Icon className="size-5" />
-                </a>
-              );
-            })}
-          </div>
           <div className="mt-8">
             <p className="text-xs font-bold text-[#A67C52] uppercase tracking-[0.2em] mb-4">
               {footer.corporateSite.label}
