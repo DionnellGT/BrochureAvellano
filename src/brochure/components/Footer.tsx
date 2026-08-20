@@ -1,15 +1,10 @@
-import { Mail, Phone, Share2, ExternalLink, type LucideIcon } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import type { FooterData } from "@/brochure/data/footer";
 
 interface FooterProps {
   footer: FooterData;
 }
 
-const SOCIAL_ICONS: Record<"share" | "mail" | "phone", LucideIcon> = {
-  share: Share2,
-  mail: Mail,
-  phone: Phone,
-};
 
 export function Footer({ footer }: FooterProps) {
   return (
