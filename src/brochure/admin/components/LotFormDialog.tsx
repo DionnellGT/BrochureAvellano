@@ -72,6 +72,7 @@ const EMPTY_FORM = {
   area: "",
   priceList: "",
   installmentPrice: "",
+  installmentPrice2: "",
   cashPrice: "",
 };
 
@@ -85,6 +86,7 @@ function toFormState(lot?: Lot): FormState {
     area: String(lot.area),
     priceList: lot.priceList !== null ? String(lot.priceList) : "",
     installmentPrice: lot.installmentPrice !== null ? String(lot.installmentPrice) : "",
+    installmentPrice2: lot.installmentPrice2 !== null ? String(lot.installmentPrice2) : "",
     cashPrice: String(lot.cashPrice),
   };
 }
@@ -112,6 +114,7 @@ function LotForm({ mode, defaultValues, isSubmitting, onSubmit }: LotFormProps) 
       area: Number(form.area),
       priceList: form.priceList.trim() === "" ? undefined : Number(form.priceList),
       installmentPrice: form.installmentPrice.trim() === "" ? undefined : Number(form.installmentPrice),
+      installmentPrice2: form.installmentPrice2.trim() === "" ? undefined : Number(form.installmentPrice2),
       cashPrice: Number(form.cashPrice),
     });
   };
@@ -169,7 +172,7 @@ function LotForm({ mode, defaultValues, isSubmitting, onSubmit }: LotFormProps) 
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="lot-installment">
-            Pie + cuotas <span className="font-normal text-muted-foreground">(opcional)</span>
+            Pie + 11 cuotas <span className="font-normal text-muted-foreground">(opcional)</span>
           </Label>
           <Input
             id="lot-installment"
@@ -177,6 +180,19 @@ function LotForm({ mode, defaultValues, isSubmitting, onSubmit }: LotFormProps) 
             min={0}
             value={form.installmentPrice}
             onChange={handleChange("installmentPrice")}
+            placeholder="—"
+          />
+        </div>
+        <div className="space-y-1.5">
+          <Label htmlFor="lot-installment">
+            Pie + 24 cuotas <span className="font-normal text-muted-foreground">(opcional)</span>
+          </Label>
+          <Input
+            id="lot-installment"
+            type="number"
+            min={0}
+            value={form.installmentPrice2}
+            onChange={handleChange("installmentPrice2")}
             placeholder="—"
           />
         </div>

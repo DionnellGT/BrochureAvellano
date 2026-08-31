@@ -44,6 +44,10 @@ export function LotMobileCard({ lote }: LotMobileCardProps) {
           <span className="text-muted-foreground">Pie 50% + 11 Cuotas</span>
           <span className="font-semibold text-right">{lote.piePorcentajeCuotas}</span>
         </div>
+        <div className="flex items-center justify-between gap-4">
+          <span className="text-muted-foreground">Pie 50% + 24 Cuotas</span>
+          <span className="font-semibold text-right">{lote.piePorcentajeCuotas2}</span>
+        </div>
       </div>
     </details>
   );

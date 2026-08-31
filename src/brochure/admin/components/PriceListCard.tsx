@@ -100,7 +100,12 @@ export function PriceListCard({ priceList, marca, tipo }: PriceListCardProps) {
                 )}
                 {lot.installmentPrice !== null && (
                   <span>
-                    Pie + cuota: <span className="font-medium text-foreground">{formatCurrency(lot.installmentPrice)}</span>
+                    Pie + 11 cuotas: <span className="font-medium text-foreground">{formatCurrency(lot.installmentPrice)}</span>
+                  </span>
+                )}
+                {lot.installmentPrice2 !== null && (
+                  <span>
+                    Pie + 24 cuotas: <span className="font-medium text-foreground">{formatCurrency(lot.installmentPrice2)}</span>
                   </span>
                 )}
                 <span>

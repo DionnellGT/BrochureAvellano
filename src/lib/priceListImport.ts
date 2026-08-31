@@ -26,6 +26,7 @@ interface NormalizedRow {
   area?: string;
   priceList?: string;
   installmentPrice?: string;
+  installmentPrice2?: string;
   cashPrice?: string;
 }
 
@@ -56,6 +57,7 @@ const HEADER_ALIASES: Record<string, keyof NormalizedRow> = {
   installmentprice: "installmentPrice",
   piecuotas: "installmentPrice",
   pie: "installmentPrice",
+  installmentprice2: "installmentPrice2",
   cashprice: "cashPrice",
   contado: "cashPrice",
   preciocontado: "cashPrice",
@@ -146,10 +148,11 @@ export function groupRowsIntoPriceLists(rows: NormalizedRow[]): GroupResult {
     // distinto de vacío/"-".
     const priceList = parseOptionalPrice(row.priceList);
     const installmentPrice = parseOptionalPrice(row.installmentPrice);
+    const installmentPrice2 = parseOptionalPrice(row.installmentPrice2);
 
-    if (priceList === "invalid" || installmentPrice === "invalid") {
+    if (priceList === "invalid" || installmentPrice  === "invalid" || installmentPrice2 === "invalid") {
       errors.push(
-        `Fila ${rowNumber} (${name}): "priceList"/"installmentPrice" deben ser números, o dejarse vacíos/"-" si no aplican.`,
+        `Fila ${rowNumber} (${name}): "priceList"/"installmentPrice"/"installmentPrice2" deben ser números, o dejarse vacíos/"-" si no aplican.`,
       );
       return;
     }
@@ -160,6 +163,7 @@ export function groupRowsIntoPriceLists(rows: NormalizedRow[]): GroupResult {
       area,
       ...(priceList !== undefined && { priceList }),
       ...(installmentPrice !== undefined && { installmentPrice }),
+      ...(installmentPrice2 !== undefined && { installmentPrice2 }),
       cashPrice,
     };
 
@@ -205,6 +209,7 @@ export async function downloadImportTemplate() {
     "area",
     "priceList",
     "installmentPrice",
+    "installmentPrice2",
     "cashPrice",
   ];
   const exampleRows = [
@@ -217,6 +222,7 @@ export async function downloadImportTemplate() {
       5062,
       12500000,
       9500000,
+      9500000,
       7500000,
     ],
     [
@@ -227,6 +233,7 @@ export async function downloadImportTemplate() {
       "Postacion - Pozo",
       5000,
       26900000,
+      20900000,
       20900000,
       18900000,
     ],
@@ -250,6 +257,7 @@ export async function downloadImportTemplate() {
       5000,
       "", // priceList: opcional, se puede dejar vacío o poner "-"
       "", // installmentPrice: opcional, se puede dejar vacío o poner "-"
+      "", // installmentPrice2: opcional, se puede dejar vacío o poner "-"
       18900000,
     ],
   ];
