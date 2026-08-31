@@ -207,10 +207,10 @@ export async function downloadImportTemplate() {
     "lot",
     "typology",
     "area",
-    "priceList",
+    "cashPrice",
     "installmentPrice",
     "installmentPrice2",
-    "cashPrice",
+    "priceList",
   ];
   const exampleRows = [
     [
