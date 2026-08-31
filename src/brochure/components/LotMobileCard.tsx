@@ -23,9 +23,9 @@ export function LotMobileCard({ lote }: LotMobileCardProps) {
         <div className="flex items-center gap-3 shrink-0">
           <div className="text-right">
             <p className="text-[10px] uppercase tracking-wide text-muted-foreground">
-              Precio Contado
+              Precio Lista
             </p>
-            <p className="font-bold text-tertiary">{lote.precioContado}</p>
+            <p className="font-bold text-tertiary">{lote.precioLista}</p>
           </div>
           <ChevronDown className="size-4 text-muted-foreground transition-transform duration-200 group-open:rotate-180" />
         </div>
@@ -37,8 +37,8 @@ export function LotMobileCard({ lote }: LotMobileCardProps) {
           <span className="font-medium text-right">{lote.superficie}</span>
         </div>
         <div className="flex items-center justify-between gap-4">
-          <span className="text-muted-foreground">Precio Lista</span>
-          <span className="text-right">{lote.precioLista}</span>
+          <span className="text-muted-foreground">Precio Contado</span>
+          <span className="text-right">{lote.precioContado}</span>
         </div>
         <div className="flex items-center justify-between gap-4">
           <span className="text-muted-foreground">Pie 50% + 11 Cuotas</span>
