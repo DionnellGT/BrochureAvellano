@@ -22,6 +22,7 @@ function mapLot(lot: ApiLot): Lot {
     superficie: formatArea(lot.area),
     precioLista: lot.priceList !== null ? formatCLP(lot.priceList) : "-",
     piePorcentajeCuotas: lot.installmentPrice !== null ? formatCLP(lot.installmentPrice) : "-",
+    piePorcentajeCuotas2: lot.installmentPrice2 !== null ? formatCLP(lot.installmentPrice2) : "-",
     precioContado: formatCLP(lot.cashPrice),
   };
 }

@@ -10,6 +10,7 @@ export interface Lot {
   superficie: string;
   precioLista: string;
   piePorcentajeCuotas: string;
+  piePorcentajeCuotas2: string;
   precioContado: string;
 }
 

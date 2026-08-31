@@ -43,9 +43,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
                   <th className="py-5 px-6 text-left">N° Lote</th>
                   <th className="py-5 px-6 text-left">Tipología</th>
                   <th className="py-5 px-6 text-left">Superficie M²</th>
-                  <th className="py-5 px-6 text-left">Precio Lista</th>
+                  <th className="py-5 px-6 text-left">Precio Contado</th>
                   <th className="py-5 px-6 text-left">Pie 50% + 11 Cuotas</th>
-                  <th className="py-5 px-6 text-left bg-tertiary">Precio Contado</th>
+                  <th className="py-5 px-6 text-left">Pie 50% + 24 Cuotas</th>
+                  <th className="py-5 px-6 text-left bg-tertiary">Precio Lista</th>
                 </tr>
               </thead>
               <tbody className="text-sm text-foreground">
@@ -57,10 +58,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     <td className="py-5 px-6 font-bold">{lote.numero}</td>
                     <td className="py-5 px-6">{lote.tipologia}</td>
                     <td className="py-5 px-6 font-medium">{lote.superficie}</td>
-                    <td className="py-5 px-6 text-muted-foreground">{lote.precioLista}</td>
+                    <td className="py-5 px-6 text-muted-foreground">{lote.precioContado}</td>
                     <td className="py-5 px-6 font-semibold">{lote.piePorcentajeCuotas}</td>
+                    <td className="py-5 px-6 font-semibold">{lote.piePorcentajeCuotas2}</td>
                     <td className="py-5 px-6 bg-tertiary-fixed font-bold text-tertiary text-lg">
-                      {lote.precioContado}
+                      {lote.precioLista}
                     </td>
                   </tr>
                 ))}
