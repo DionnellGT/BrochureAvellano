@@ -93,9 +93,9 @@ export function PriceListCard({ priceList, marca, tipo }: PriceListCardProps) {
               <span className="font-semibold text-foreground">Lote {lot.lot}</span>
               <span className="text-muted-foreground"> · {lot.typology} · {lot.area} m²</span>
               <div className="mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-muted-foreground">
-                {lot.priceList !== null && (
+                {lot.cashPrice !== null && (
                   <span>
-                    Precio lista: <span className="font-medium text-foreground">{formatCurrency(lot.priceList)}</span>
+                    Contado: <span className="font-medium text-foreground">{formatCurrency(lot.cashPrice)}</span>
                   </span>
                 )}
                 {lot.installmentPrice !== null && (
@@ -108,9 +108,11 @@ export function PriceListCard({ priceList, marca, tipo }: PriceListCardProps) {
                     Pie + 24 cuotas: <span className="font-medium text-foreground">{formatCurrency(lot.installmentPrice2)}</span>
                   </span>
                 )}
-                <span>
-                  Contado: <span className="font-medium text-foreground">{formatCurrency(lot.cashPrice)}</span>
-                </span>
+                {lot.priceList !== null && (
+                  <span>
+                    Precio lista: <span className="font-medium text-foreground">{formatCurrency(lot.priceList)}</span>
+                  </span>
+                )}
               </div>
             </div>
 
